@@ -43,14 +43,37 @@ body::after {
 body.light::after {
   background: radial-gradient(circle at 50% 30%, rgba(168, 85, 247, 0.07), transparent 65%);
 }
+.discord-btn {
+  background: linear-gradient(135deg, #c026d3, #a855f7);
+  color: #ffffff;
+  box-shadow: 0 10px 25px -5px rgb(192 38 211);
+  border: none;
+}
 
+.discord-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 30px -5px rgb(192 38 211);
+  background: linear-gradient(135deg, #a855f7, #c026d3);
+}
+
+body.light .discord-btn {
+  background: linear-gradient(135deg, #0f172a, #334155);
+  color: #ffffff;
+  box-shadow: 0 10px 25px -5px rgb(15 23 42);
+}
+
+body.light .discord-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 30px -5px rgb(15 23 42);
+  background: linear-gradient(135deg, #334155, #0f172a);
+}
 .cursor-glow {
   position: fixed;
-  width: 420px;
-  height: 420px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   pointer-events: none;
-  background: radial-gradient(circle at center, rgba(192, 38, 211, 0.22), transparent 65%);
+  background: radial-gradient(circle at center, rgba(192, 38, 211, 0.22), transparent 70%);
   transform: translate(-50%, -50%);
   z-index: 9999;
   opacity: 0;
@@ -59,7 +82,7 @@ body.light::after {
 }
 
 body.light .cursor-glow {
-  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15), transparent 65%);
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15), transparent 70%);
 }
 
 .sidebar-card, .content-card {
@@ -77,11 +100,48 @@ body:not(.light) .content-card {
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 20px 40px rgba(59, 19, 65, 0.25);
 }
+body.light .content-card h3 {
+  color: #1e2937;
+}
+.faq-box {
+  background: rgba(17, 17, 17, 0.6);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
 
+body.light .faq-box {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.faq-inline-code {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+
+body.light .faq-inline-code {
+  background: rgba(0, 0, 0, 0.08);
+  color: #1e2937;
+}
+
+.faq-note {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+body.light .faq-note {
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #334155;
+}
 body.light .sidebar-card,
 body.light .content-card {
   background: rgba(255, 255, 255, 0.45);
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
@@ -181,7 +241,12 @@ html { scroll-behavior: smooth; }
   height: fit-content;
   align-self: start;
 }
-
+@media (max-width: 768px) {
+  #sidebar {
+    top: 20px;
+    padding-bottom: 40px;
+  }
+}
 .toggle-switch {
   position: relative;
   display: inline-flex;
@@ -428,6 +493,7 @@ body.light .logo::after {
 
 .connection-path.animate {
   animation: drawLine 0.6s cubic-bezier(0.65,0,0.35,1) forwards;
+  z-index: 10;
 }
 
 @keyframes drawLine {
@@ -438,13 +504,17 @@ body.light .logo::after {
 
 body.light .connection-path {
   stroke: #a855f7;
+  z-index: 10;
 }
-
+#main-path {
+  z-index: 10;
+}
 .tree-line {
   stroke-dasharray: 300;
   position: relative;
   stroke-dashoffset: 300;
   animation: drawTree 0.6s ease forwards;
+  z-index: 10;
 }
 
 @keyframes drawTree {
@@ -534,4 +604,605 @@ body.light .bg-watermark {
     3px 0px 0px rgba(192, 38, 211, 0.3),
     -3px 0px 0px rgba(34, 211, 238, 0.3);
   opacity: 0.8;
+}
+
+body.light .version-badge {
+  background: white !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  color: #10b981 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+body.light .version-badge.amber {
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  color: #f59e0b !important;
+}
+
+body.light #content-versions .border-t {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light .content-card ul li {
+  color: #334155;
+}
+
+body.light .content-card p {
+  color: #475569;
+}
+
+body.light .content-card .text-emerald-600 {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.modern-version-scroll {
+  position: relative;
+  max-height: 560px;
+  overflow-y: auto;
+  padding-right: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #c026d3 #27272a;
+}
+
+.modern-version-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modern-version-scroll::-webkit-scrollbar-track {
+  background: #27272a;
+  border-radius: 10px;
+}
+
+.modern-version-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #c026d3, #a855f7);
+  border-radius: 10px;
+}
+
+.modern-version-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #e879f9, #c026d3);
+}
+
+.modern-version-scroll {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,           
+    rgba(0,0,0,1) 85px,         
+    rgba(0,0,0,0.98) 160px,     
+    rgba(0,0,0,0.65) 92%,       
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 85px,
+    rgba(0,0,0,0.98) 160px,
+    rgba(0,0,0,0.65) 92%,
+    transparent 100%
+  );
+
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+body.light .modern-version-scroll {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,1) 85px,
+    rgba(255,255,255,0.98) 160px,
+    rgba(255,255,255,0.65) 92%,
+    transparent 100%
+);
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,1) 85px,
+    rgba(255,255,255,0.98) 160px,
+    rgba(255,255,255,0.65) 92%,
+    transparent 100%
+  );
+}
+.modern-version-scroll > .version-card:first-child {
+  margin-top: 4px;
+  scroll-margin-top: 10px;
+}
+
+body.light .command-block .command-main {
+  color: #000000 !important;     
+}
+
+body.light .command-block .bg-purple-500\/20 {
+  background-color: #e0e7ff !important;   
+  color: #4338ca !important;
+}
+
+body.light .command-block .text-zinc-400 {
+  color: #475569 !important;     
+}
+
+body.light .command-block .text-zinc-500 {
+  color: #64748b !important;     
+}
+
+body.light .command-block code {
+  color: #1e2937 !important;     
+  background-color: #f1f5f9 !important;
+}
+
+body.light .text-primary {
+  color: #1e2937 !important;
+}
+
+body.light .command-block span.text-purple-400 {
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+body.light .bg-black\/30 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+body.light .faq-box.border-amber-500\/20 {
+  background: #fffbeb !important;
+  border-color: #fde68a !important;
+}
+
+body.light .discord-header-btn {
+  background-color: #ffffff !important;
+  border-color: #000000 !important;
+  color: #000000 !important;
+}
+
+body.light .discord-header-btn:hover {
+  border-color: #a855f7 !important;
+  color: #a855f7 !important;
+  background-color: rgba(168, 85, 247, 0.05) !important;
+}
+
+.modern-version-scroll {
+  position: relative;
+  padding-left: 10px;
+}
+
+.modern-version-scroll::before {
+  content: '';
+  position: absolute;
+  left: 48px; 
+  top: 30px;
+  bottom: 30px;
+  width: 2px;
+  background: linear-gradient(to bottom,
+    rgba(16, 185, 129, 0.6) 0%,
+    rgba(192, 38, 211, 0.4) 30%,
+    rgba(192, 38, 211, 0.1) 100%);
+  z-index: 0;
+  border-radius: 10px;
+}
+
+body.light .modern-version-scroll::before {
+  background: linear-gradient(to bottom,
+    rgba(16, 185, 129, 0.4) 0%,
+    rgba(15, 23, 42, 0.2) 30%,
+    rgba(15, 23, 42, 0.05) 100%);
+}
+
+.version-card {
+  position: relative;
+  z-index: 1;
+}
+
+.version-card .flex-shrink-0 {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+#searchSuggestions {
+  z-index: 100000 !important;
+  position: absolute;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: rgba(9, 9, 11, 0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+}
+
+body.light #searchSuggestions {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.18);
+}
+
+body.light #searchSuggestions > div {
+  color: #1e2937 !important;           
+}
+
+body.light #searchSuggestions > div span {
+  color: inherit !important;
+}
+
+body.light #searchSuggestions > div span.light\\:text-indigo-600 {
+  color: #64748b !important;           
+}
+
+#searchSuggestions > div:hover {
+  background: rgba(192, 38, 211, 0.2) !important;
+}
+body.light #searchSuggestions > div:hover {
+  background: rgba(168, 85, 247, 0.09) !important;
+  color: #1e2937 !important;
+}
+
+body.light #searchSuggestions > div.bg-purple-500\/20 {
+  background: #f1f5f9 !important;      
+  color: #1e2937 !important;
+}
+
+body.light #searchSuggestions > div .text-xl {
+  filter: none;
+}
+
+.modern-version-scroll {
+  scrollbar-color: #c026d3 #27272a;
+}
+
+body.light .modern-version-scroll {
+  scrollbar-color: #000000 #e2e8f0;
+}
+
+.modern-version-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modern-version-scroll::-webkit-scrollbar-track {
+  background: #27272a;
+  border-radius: 10px;
+}
+
+body.light .modern-version-scroll::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.modern-version-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #c026d3, #a855f7);
+  border-radius: 10px;
+}
+
+body.light .modern-version-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #000000, #000000);
+}
+
+.modern-version-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #e879f9, #c026d3);
+}
+
+body.light .modern-version-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #000000, #000000);
+}
+
+.modern-version-scroll::before {
+  background: linear-gradient(to bottom,
+    rgba(16, 185, 129, 0.6) 0%,
+    rgba(192, 38, 211, 0.4) 30%,
+    rgba(192, 38, 211, 0.1) 100%);
+}
+
+body.light .modern-version-scroll::before {
+  background: linear-gradient(to bottom,
+    rgba(16, 185, 129, 0.5) 0%,
+    rgba(109, 40, 217, 0.3) 40%,
+    rgba(109, 40, 217, 0.08) 100%);
+}
+
+body.light .version-card {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light .version-card p {
+  color: #334155 !important;
+}
+
+body.light .version-card ul li {
+  color: #475569 !important;
+}
+
+body.light .version-card .px-5.py-2.bg-zinc-700 {
+  background: #f1f5f9 !important;
+  color: #1e2937 !important;
+  border: 1px solid #e2e8f0;
+}
+
+.command-block {
+  border-color: rgba(192, 38, 211, 0.3);
+}
+
+body.light .command-block {
+  border-color: rgba(109, 40, 217, 0.25);
+}
+
+.command-main {
+  color: #c026d3;                    
+  font-weight: 700;
+}
+
+body.light .command-main {
+  color: #1e2937 !important;         
+}
+
+.command-block .bg-purple-500\/20 {
+  background-color: rgba(192, 38, 211, 0.15) !important;
+  color: #c026d3 !important;
+}
+
+body.light .command-block .bg-purple-500\/20 {
+  background-color: #e0e7ff !important;
+  color: #4338ca !important;
+}
+
+.command-block p.text-zinc-400 {
+  color: #cbd5e1;
+}
+
+body.light .command-block p.text-zinc-400 {
+  color: #475569 !important;
+}
+
+.command-block .font-bold {
+  color: #c026d3;
+}
+
+body.light .block-wall-admin {
+  background-color: #1e2937;
+}
+
+body.light .command-block .font-bold {
+  color: #1e2937 !important;
+}
+
+.command-block code {
+  color: #67e8f9;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+body.light .command-block code {
+  color: #0e7490 !important;
+  background: #f1f5f9 !important;
+}
+
+.bg-black\/30 {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(255,255,255,0.05) !important;
+}
+
+body.light .bg-black\/30 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+#connection-layer {
+  z-index: 10 !important;           
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.code-content {
+  background: transparent;
+}
+
+.code-content > div {
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+body.light .code-content > div {
+  background: #f8fafc !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.code-content pre {
+  background: #0f172a !important;
+  color: #67e8f9 !important;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(103, 232, 249, 0.15);
+  font-size: 0.925rem;
+  line-height: 1.55;
+  overflow-x: auto;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+body.light .code-content pre {
+  background: #f1f5f9 !important;
+  color: #1e2937 !important;
+  border-color: rgba(148, 163, 184, 0.3) !important;
+}
+
+.code-content pre code {
+  color: inherit !important;
+  background: transparent !important;
+  padding: 0;
+  font-family: ui-monospace, monospace;
+}
+
+.code-content pre .text-emerald-300 { color: #34d399 !important; }
+.code-content pre .text-sky-300    { color: #38bdf8 !important; }
+
+body.light .code-content pre .text-emerald-300 { color: #10b981 !important; }
+body.light .code-content pre .text-sky-300    { color: #0ea5e9 !important; }
+
+.code-content pre:hover {
+  border-color: rgba(192, 38, 211, 0.4);
+}
+
+body.light .code-content pre:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+.code-content pre:focus-within {
+  outline: 2px solid rgba(192, 38, 211, 0.6);
+  outline-offset: -2px;
+}
+
+body.light .code-content pre:focus-within {
+  outline-color: rgba(168, 85, 247, 0.6);
+}
+
+.minecraft-steve-bg {
+  position: fixed;
+  bottom: 0;                    
+  left: 0;                      
+  width: 620px;                 
+  height: auto;
+  z-index: -3;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+  filter: brightness(0.78) contrast(1.08) saturate(0.92);
+  object-fit: contain;
+}
+
+body.loaded .minecraft-steve-bg {
+  opacity: 0.28;                
+}
+
+.minecraft-steve-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(10,10,10,0.9) 0%,
+    rgba(10,10,10,0.5) 35%,
+    rgba(10,10,10,0.12) 60%,
+    transparent 85%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+body.light .minecraft-steve-bg {
+  opacity: 0.75;
+  filter: brightness(1) contrast(1.05);
+}
+
+body.light .minecraft-steve-bg::after {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.4) 70%,
+    transparent 75%
+  );
+}
+
+.discord-tooltip {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translate(-50%, -8px);
+  pointer-events: none;
+}
+
+.group:hover .discord-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.discord-tooltip > div {
+  transition: all 0.2s ease;
+}
+
+body.light #content-test6 .bg-zinc-950 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light #content-test6 .border-white\/10 {
+  border-color: #e2e8f0 !important;
+}
+
+body.light #content-test6 .from-purple-600\/10 {
+  background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.08), transparent) !important;
+}
+
+body.light #content-test6 h3 {
+  color: #18181b !important;
+}
+
+body.light #content-test6 p {
+  color: #3f3f46 !important;
+}
+
+body.light #content-test6 .from-red-500 {
+  background: linear-gradient(90deg, #ef4444, #e11d48) !important;
+}
+
+body.light #content-test6 a {
+  background-color: #f1f5f9 !important;
+  color: #18181b !important;
+  border-color: #cbd5e1 !important;
+}
+
+body.light #content-test6 a:hover {
+  background-color: #e2e8f0 !important;
+}
+
+body.light #content-test6 a svg {
+  stroke: #18181b !important;
+}
+
+body.light table th {
+  color: #7c3aed; 
+}
+
+body.light table td {
+  color: #334155; 
+}
+
+body.light table {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light table tr {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light .faq-box .bg-black\/30 {
+  background: rgba(241, 245, 249, 0.9) !important;
+  color: #065f46 !important; 
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+}
+
+body.light .glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.code-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.code-chevron.rotated {
+  transform: rotate(90deg);
 }
